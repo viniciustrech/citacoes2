@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+<script>
+	function mostrarValor(){
+  document.write("Nome: " + document.getElementById('nome').value + "</br>" +
+  "Nick: " + document.getElementById('nick').value + "</br>" +
+  "Senha: " + document.getElementById('senha').value + "</br>" +
+  "Email: " + document.getElementById('email').value + "</br>" + 
+  "Dia: " + document.getElementById('dia').value + "</br>" +
+  "Mes: " + document.getElementById('mes').value + "</br>" +
+  "Ano: " + document.getElementById('ano').value + "</br>" +
+  "Sexo: " + (document.querySelector('input[name="genero"]:checked').value));
+}
+
+</script>
+<title>Criacao Default.html</title>
+</head>
+<body>
+<h1 style="text-align: center;"><strong>Cadastro</strong></h1>
+<div class='container'>
+<form method="post" onsubmit="return mostrarValor()">
+  <div class="form-group">
+    <input type="text" id="nome" placeholder="Nome" class="form-control">
+  </div>
+  
+   <div class="form-group">
+    <input type="text" id="nick" placeholder="Nick" class="form-control">
+  </div>
+  
+   <div class="form-group">
+    <input type="password" id="senha" placeholder="Senha" class="form-control">
+  </div>
+  
+     <div class="form-group">
+    <input type="password" id="senha" placeholder="Repita sua Senha" class="form-control">
+  </div>
+  
+     <div class="form-group">
+    <input type="email" id="email" placeholder="Email" class="form-control">
+  </div>
+
+  <div>
+	<select id="dia" class="form-control form-check-inline" style="width: 80px;">		
+	</select>
+	
+	<select id="mes" class="form-control form-check-inline" style="width: 100px;">			  					
+	</select>
+	
+	<select id="ano" class="form-control form-check-inline" style="width: 80px;">
+	</select>
+	
+	<script>
+		var mySelect = document.getElementById("dia");
+
+		var array = ["Dia"];
+		
+		for(var x = 1; x <= 31; x++){
+			array[x] = x;
+		}
+
+		for (var i = 0; i < array.length; i++) {
+			if(i > 0){
+			var option = document.createElement("option");
+			option.value = array[i];
+			option.text = array[i];
+			mySelect.appendChild(option);
+			}
+		}
+	</script>
+	
+	<script>
+		var mySelect = document.getElementById("mes");
+
+
+			var array = ["Mes"];
+			var date = new Date();
+			var month = new Array();
+			month[0] = "Janeiro";
+			month[1] = "Fevereiro";
+			month[2] = "Março";
+			month[3] = "Abril";
+			month[4] = "Maio";
+			month[5] = "Junho";
+			month[6] = "Julho";
+			month[7] = "Agosto";
+			month[8] = "Setembro";
+			month[9] = "Outubro";
+			month[10] = "Novembro";
+			month[11] = "Dezembro";
+		
+		for(var x = 0; x <= 12; x++){
+			array[x] = month[date.getMonth(x)];
+			date.setMonth(x);
+		}
+
+		for (var i = 0; i < array.length; i++) {
+			if(i > 0){
+			var option = document.createElement("option");
+			option.value = array[i];
+			option.text = array[i];
+			mySelect.appendChild(option);
+			}
+		}
+	</script>
+	
+	<script>
+		var mySelect = document.getElementById("ano");
+
+		var array = [""];
+		var today = new Date();
+		var ano = today.getFullYear();
+		
+		for(var x = 0; x <= ano; x++){	
+			array[x] = x;
+		}
+		
+		for (var i = 0; i < array.length; i++) {
+			if(i > 1899){
+			var option = document.createElement("option");
+			option.value = array[i];
+			option.text = array[i];
+			mySelect.appendChild(option);
+			}
+		}
+	</script>
+
+</div>
+  
+  <div style="margin-top: 10px;">
+    <input type="radio" name="genero" value="Masculino">Masculino
+	<input type="radio" name="genero" value="Feminino">Feminino 
+  </div>
+  <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Enviar</button>
+  </div>
+</form>
+
+</body>
+</html>
